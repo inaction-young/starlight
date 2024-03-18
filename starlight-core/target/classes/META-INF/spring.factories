@@ -1,0 +1,2 @@
+#create by tangjian, from 2022-10-17 21:07:01
+org.springframework.context.ApplicationContextInitializer=com.sflc.ad.core.config.BootContextInitializer

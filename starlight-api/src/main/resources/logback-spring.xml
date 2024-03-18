@@ -1,0 +1,48 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<configuration>
+  <property name="appid" value="adverts-api"/>
+  <springProperty scope="context" name="logPath" source="log.path"/>
+
+  <!--打印日志到控制台-->
+  <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder charset="UTF-8"> <!-- encoder 可以指定字符集，对于中文输出有意义 -->
+      <pattern>
+        %d{yyyy-MM-dd HH:mm:ss.SSS} | ${appid} | %thread | %level | ${appid} ｜ %X{_tid} | %logger{0}.%method | %line | %msg%n
+      </pattern>
+    </encoder>
+  </appender>
+
+  <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>${logPath}/${appid}/${appid}.log</file>
+    <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+      <fileNamePattern>${logPath}/${appid}/${appid}-%d{yyyy-MM-dd_HH}.%i.log.gz</fileNamePattern>
+      <!-- 文件超过 限制进行 压缩操作 -->
+      <maxFileSize>20MB</maxFileSize>
+      <!-- 保留的日志数据, 根据 fileNamePattern 最小的日期单位来计算 -->
+      <maxHistory>10</maxHistory>
+      <!-- 整个 appender 下面的 文件 总大小 限制 -->
+      <totalSizeCap>2GB</totalSizeCap>
+      <!-- 启动的时候开始清理 -->
+      <cleanHistoryOnStart>true</cleanHistoryOnStart>
+    </rollingPolicy>
+    <encoder>
+      <pattern>
+        %d{yyyy-MM-dd HH:mm:ss.SSS} | ${appid} | %thread | %level | ${appid} ｜ %X{_tid} | %logger{0}.%method | %line | %msg%n
+      </pattern>
+    </encoder>
+    <append>true</append>
+    <prudent>false</prudent>
+  </appender>
+
+  <springProfile name="dev">
+    <root level="INFO">
+      <appender-ref ref="console"/>
+    </root>
+  </springProfile>
+
+  <springProfile name="prod">
+    <root level="INFO">
+      <appender-ref ref="file"/>
+    </root>
+  </springProfile>
+</configuration>
