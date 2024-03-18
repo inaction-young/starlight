@@ -36,10 +36,6 @@ public class UserInviteController extends BaseController {
 
     private final UserTaskManage userTaskManage;
 
-    /**
-     * 创建用户的邀请链接
-     * @return
-     */
     @ResponseBody
     @PostMapping("/create/link")
     public ApiResp<InviteResp> invite() {
@@ -49,16 +45,11 @@ public class UserInviteController extends BaseController {
         return ApiResp.success(new InviteResp(link, count));
     }
 
-    /**
-     * 邀请链接
-     * @return
-     */
     @PostMapping("/link/{key}")
     public void link(@PathVariable("key") String key) throws IOException {
         //任务完成埋点
         userTaskManage.complete(userToken(), UserTaskName.INVITED);
         String url = userInviteManage.link(key);
-        log.info("Invite 302 url， key —> {}, url -> {}", key, url);
         HttpRequestUtil.getResponse().sendRedirect(url);
     }
 

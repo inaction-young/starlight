@@ -13,9 +13,6 @@ import lombok.Data;
 @Data
 public class LoginBo {
 
-    /**
-     * 一键登录码；一键登录时，第三方认证SDK会给客户端返回一键登录的token。
-     */
     private String code;
 
     private String verifyId;

@@ -16,10 +16,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class InviteResp {
 
-    /**
-     * 邀请的链接，点击该链接时会302重定向到登录页面，并会拼接参数inviteKey={key}
-     * 用户从此链接登录时，前端需要将{key}传给服务端，登录接口的字段为 "inviteKey"
-     */
     private String link;
 
     /**

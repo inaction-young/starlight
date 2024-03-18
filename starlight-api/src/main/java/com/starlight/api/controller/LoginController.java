@@ -44,11 +44,6 @@ public class LoginController extends BaseController {
 
     private final UserTokenManage userTokenManage;
 
-    /**
-     * 手机号一键登录
-     * @param req
-     * @return
-     */
     @PostMapping("/mobile")
     public ApiResp<UserLoginResp> mobile(@RequestBody MobileLoginReq req) {
         LoginBo loginBo = EntityUtils.castTo(req, LoginBo.class);
@@ -59,11 +54,6 @@ public class LoginController extends BaseController {
         return ApiResp.success(UserLoginResp.newborn(token));
     }
 
-    /**
-     * 手机短信登录
-     * @param req
-     * @return
-     */
     @PostMapping("/otp")
     public ApiResp<UserLoginResp> otp(@RequestBody OtpLoginReq req) {
         LoginBo loginBo = EntityUtils.castTo(req, LoginBo.class);
@@ -74,11 +64,6 @@ public class LoginController extends BaseController {
         return ApiResp.success(UserLoginResp.newborn(token));
     }
 
-    /**
-     * 微信登录
-     * @param req
-     * @return
-     */
     @PostMapping("/wechat")
     public ApiResp<UserLoginResp> wechat(@RequestBody WeChatLoginReq req) {
         LoginBo loginBo = EntityUtils.castTo(req, LoginBo.class);
@@ -89,11 +74,6 @@ public class LoginController extends BaseController {
         return ApiResp.success(UserLoginResp.newborn(token));
     }
 
-    /**
-     * 苹果ID登录
-     * @param req
-     * @return
-     */
     @PostMapping("/apple")
     public ApiResp<UserLoginResp> apple(@RequestBody AppleLoginReq req) {
 

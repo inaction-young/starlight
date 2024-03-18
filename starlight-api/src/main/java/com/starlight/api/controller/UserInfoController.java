@@ -42,11 +42,6 @@ public class UserInfoController extends BaseController {
 
     private final UserTaskManage userTaskManage;
 
-    /**
-     * 编辑用户信息
-     * @param userReq
-     * @return
-     */
     @PostMapping("/edit")
     public ApiResp<Boolean> edit(@RequestBody UserReq userReq) {
         UserToken userToken = userToken();
@@ -65,11 +60,6 @@ public class UserInfoController extends BaseController {
         return ApiResp.success(true);
     }
 
-    /**
-     * 编辑用户基础信息
-     * @param userInfoReq
-     * @return
-     */
     @PostMapping("/edit/info")
     public ApiResp<Boolean> editUserInfo(@RequestBody UserInfoReq userInfoReq) {
         UserToken userToken = userToken();
@@ -80,11 +70,6 @@ public class UserInfoController extends BaseController {
         return ApiResp.success(true);
     }
 
-    /**
-     * 编辑用户更多信息
-     * @param userMoreInfoReq
-     * @return
-     */
     @PostMapping("/edit/more")
     public ApiResp<Boolean> editUserMoreInfo(@RequestBody UserMoreInfoReq userMoreInfoReq) {
         UserToken userToken = userToken();
@@ -95,10 +80,6 @@ public class UserInfoController extends BaseController {
         return ApiResp.success(true);
     }
 
-    /**
-     * 查询用户信息
-     * @return
-     */
     @PostMapping("/info")
     public ApiResp<UserResp> info() {
         UserBo userBo = userInfoManage.getByUuid(userToken().getUuid());

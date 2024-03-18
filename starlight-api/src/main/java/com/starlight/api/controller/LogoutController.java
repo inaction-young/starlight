@@ -23,10 +23,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class LogoutController extends BaseController {
 
-    /**
-     * 登出当前用户
-     * @return 返回 true 登出成功
-     */
     @PostMapping("/user")
     public ApiResp<Boolean> user() {
         UserTokenUtils.clearUserByCache(userToken().getTk());

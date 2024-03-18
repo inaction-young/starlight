@@ -15,24 +15,9 @@ import java.time.LocalDateTime;
 @Data
 public class UserElementBo {
 
-    /**
-     * 用户uuid
-     */
     private Long uuid;
-
-    /**
-     * 要素
-     */
     private String element;
-
-    /**
-     * 要素类型，MOBILE-手机，ACCOUNT-账号，WE_CHAT-微信，APPLE_ID-苹果ID
-     */
     private UserElementType type;
-
-    /**
-     * 是否删除，0否1是
-     */
     private Integer isDeleted;
 
     /**

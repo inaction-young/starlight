@@ -15,34 +15,16 @@ import java.time.LocalDateTime;
 @Data
 public class UserAuthBo {
 
-    /**
-     * 用户唯一ID
-     */
     private Long uuid;
 
-    /**
-     * 密码
-     */
     private String password;
 
-    /**
-     * 状态，NORMAL:正常，LOGOFF:注销
-     */
     private UserAuthStatus status;
 
-    /**
-     * 是否删除，0否1是
-     */
     private Integer isDeleted;
 
-    /**
-     * 创建时间
-     */
     private LocalDateTime createdAt;
 
-    /**
-     * 更新时间
-     */
     private LocalDateTime updatedAt;
 
 

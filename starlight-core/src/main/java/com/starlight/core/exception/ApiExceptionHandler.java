@@ -14,19 +14,16 @@ public class ApiExceptionHandler {
 
     @ExceptionHandler(ApiException.class)
     public ApiResp apiExceptionHandler(ApiException e) {
-        log.error("api exception :", e);
         return ApiResp.fail(e.getApiCode());
     }
 
     @ExceptionHandler(value = HttpMessageNotReadableException.class)
     public ApiResp catchHttpMessageNotReadableException(Exception e) {
-        log.error("params exception :", e);
         return ApiResp.fail(ApiCode.API_ILLEGAL_DEFECT_PARAMS);
     }
 
     @ExceptionHandler(value = Exception.class)
     public ApiResp exceptionHandler(Exception e) {
-        log.error("system exception :", e);
         return ApiResp.fail(ApiCode.API_EXCEPTION);
     }
 

@@ -58,7 +58,6 @@ public class HttpClientUtils {
         ResponseEntity<T> responseEntity = getRedisTemplate().postForEntity(url, requestEntity, resultClz);
 
         if (HttpStatus.OK != responseEntity.getStatusCode()) {
-            log.error("[HttpClient RestTemplate] 外部接口调用失败！response -> {}", JSONObject.toJSONString(responseEntity));
             throw new ApiException(ApiCode.API_EXCEPTION);
         }
         return responseEntity.getBody();

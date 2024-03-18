@@ -10,19 +10,10 @@ import java.time.LocalDate;
 @Data
 public class UserInfoReq {
 
-    /**
-     * 昵称
-     */
     private String nickname;
 
-    /**
-     * 姓名
-     */
     private String fullName;
 
-    /**
-     * 生日
-     */
     private LocalDate birthday;
 
     /**

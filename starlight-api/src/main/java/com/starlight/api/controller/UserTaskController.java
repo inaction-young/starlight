@@ -34,20 +34,12 @@ public class UserTaskController extends BaseController {
 
     private final UserTaskManage userTaskManage;
 
-    /**
-     * 任务完成，领取奖励
-     * @return
-     */
     @PostMapping("/reward")
     public ApiResp<Boolean> reward(@RequestBody UserTaskRewardReq req) {
         UserToken userTokenBo = userToken();
         return ApiResp.success(userTaskManage.reward(userTokenBo, req.getTask()));
     }
 
-    /**
-     * 返回用户已完成的任务，未返回的则为未完成的任务
-     * @return
-     */
     @PostMapping("/complete/list")
     public ApiResp<List<UserTaskCompleteResp>> completeList() {
         List<UserTaskStatusBo> userTaskStatusBos = userTaskManage.completeList(userToken());

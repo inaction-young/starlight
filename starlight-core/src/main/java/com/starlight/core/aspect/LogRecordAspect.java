@@ -44,8 +44,6 @@ public class LogRecordAspect {
             log(result, method, takingTime, exception);
             //所有处理完成 清楚线程
 //            HttpThreadLocal.clearAll();
-            log.info("method: {}/{}.{} taking time:{}ms", new Object[] { method.getDeclaringClass().getName(),
-                    method.getDeclaringClass().getSimpleName(), method.getName(), takingTime });
         }
     }
 

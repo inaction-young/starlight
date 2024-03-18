@@ -34,7 +34,6 @@ public class ApiFilter implements Filter {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest req = (HttpServletRequest) servletRequest;
         String ip = IpUtils.getIp(req);
-        log.info("[Api Filter] request -> {}; IP -> {}", req.getRequestURI(), ip);
         filterChain.doFilter(servletRequest, servletResponse);
     }
 

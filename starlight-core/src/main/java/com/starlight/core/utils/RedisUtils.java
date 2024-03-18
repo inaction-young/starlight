@@ -109,7 +109,6 @@ public class RedisUtils {
             try {
                 return clz.newInstance();
             } catch (Exception e) {
-                log.error("[RedisUtils] get error: ", e);
             }
         }
         return (T) result;

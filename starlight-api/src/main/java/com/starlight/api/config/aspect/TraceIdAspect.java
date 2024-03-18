@@ -27,9 +27,6 @@ public class TraceIdAspect {
 
     private static final String TRACE_ID = "_tid";
 
-    /**
-     * controller 所有方法
-     */
     @Pointcut("execution(* com.starlight.api.controller..*.*(..))")
     public void trace() {
 
